@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     var numero1: Double = 0.0
     lateinit var tv_num1: TextView
     lateinit var tv_num2: TextView
+    private var isNum2Selected: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +82,26 @@ class MainActivity : AppCompatActivity() {
             R.id.btnDividir -> {
                 tv_num1.setText(num2+"/")
                 oper = 4
+            }
+        }
+    }
+
+
+    // Llamado cuando se hace clic en el botón de borrar
+    fun clicBorrar(view: View) {
+        if (isNum2Selected) {
+            if (tv_num2.text.isNotEmpty()) {
+                tv_num2.text = tv_num2.text.toString().dropLast(1)
+            }
+            if (tv_num2.text.isEmpty()) {
+                tv_num2.text = "0.0"
+            }
+        } else {
+            if (tv_num1.text.isNotEmpty()) {
+                tv_num1.text = tv_num1.text.toString().dropLast(1)
+            }
+            if (tv_num1.text.isEmpty()) {
+                tv_num1.text = "0.0"
             }
         }
     }

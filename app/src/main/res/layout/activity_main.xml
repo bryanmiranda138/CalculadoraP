@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fondo"
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/tv_num1"
@@ -189,6 +195,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:onClick="clicNumero"
+        app:circularflow_radiusInDP="@string/app_name"
         android:text="7"
         android:textSize="@dimen/texto_botones"
         app:layout_constraintBottom_toTopOf="@+id/btn4"
@@ -236,8 +243,23 @@
         android:id="@+id/btnBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="8dp"
         android:text="C"
         android:textSize="@dimen/texto_botones"
         app:layout_constraintBottom_toTopOf="@+id/btnSumar"
         app:layout_constraintEnd_toEndOf="@+id/btnSumar" />
+
+    <Button
+        android:id="@+id/btnBorrar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clicBorrar"
+        android:layout_marginBottom="8dp"
+        android:text="⌫"
+        android:textSize="@dimen/texto_botones"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnBorrar"
+        app:layout_constraintEnd_toStartOf="@+id/btnSumar"
+        app:layout_constraintStart_toEndOf="@+id/btnDividir" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
