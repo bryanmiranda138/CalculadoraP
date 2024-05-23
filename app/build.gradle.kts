@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.calculadorap"
+    namespace = "com.ipam.calculadorap"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.calculadorap"
+        applicationId = "com.ipam.calculadorap"
         minSdk = 21
         targetSdk = 34
         versionCode = 1

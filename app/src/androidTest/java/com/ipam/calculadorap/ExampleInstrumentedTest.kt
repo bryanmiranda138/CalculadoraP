@@ -1,4 +1,4 @@
-package com.example.calculadorap
+package com.ipam.calculadorap
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

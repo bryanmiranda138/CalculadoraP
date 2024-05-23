@@ -1,4 +1,4 @@
-package com.example.calculadorap
+package com.ipam.calculadorap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

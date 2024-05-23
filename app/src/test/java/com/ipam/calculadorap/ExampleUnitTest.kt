@@ -1,4 +1,4 @@
-package com.example.calculadorap
+package com.ipam.calculadorap
 
 import org.junit.Test
 
