@@ -25,17 +25,27 @@ class MainActivity : AppCompatActivity() {
 
         btnIgual.setOnClickListener {
             val num2 = tv_num2.text.toString().toDoubleOrNull() ?: 0.0
-            var res: Any = 0.0 // Cambia el tipo de `res` a `Any` para que pueda almacenar tanto Double como String
+            var res: Any = 0.0 // Cambiar el tipo a Any para poder asignar un String en caso de error
             when (oper) {
                 1 -> res = numero1 + num2
                 2 -> res = numero1 - num2
                 3 -> res = numero1 * num2
                 4 -> {
-                    res = if (num2 == 0.0) "Math Error" else numero1 / num2
+                    // Verificar si num2 es cero para evitar la división por cero
+                    if (num2 == 0.0) {
+                        res = "Math Error"
+                    } else {
+                        res = numero1 / num2
+                    }
                 }
             }
-            tv_num2.text = res.toString() // Usa `text` en lugar de `setText` para Kotlin
-            tv_num1.text = ""
+            // Verificar si res es un Double o un String para asignarlo correctamente a tv_num2
+            if (res is Double) {
+                tv_num2.setText(res.toString())
+            } else if (res is String) {
+                tv_num2.setText(res)
+            }
+            tv_num1.setText("")
             isNum2Selected = false
         }
 
