@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         tv_num2 = findViewById(R.id.tv_num2)
 
         btnIgual.setOnClickListener {
-            val num2 = tv_num2.text.toString().toDoubleOrNull() ?: 0.0
+            val num2Text = tv_num2.text.toString()
+            val num2 = num2Text.toDoubleOrNull() ?: 0.0
             var res: Any = 0.0 // Cambiar el tipo a Any para poder asignar un String en caso de error
             when (oper) {
                 1 -> res = numero1 + num2
@@ -43,7 +44,11 @@ class MainActivity : AppCompatActivity() {
             }
             // Verificar si res es un Double o un String para asignarlo correctamente a tv_num2
             if (res is Double) {
-                tv_num2.setText(res.toString())
+                if (num2Text.contains(".")) {
+                    tv_num2.setText(res.toString())
+                } else {
+                    tv_num2.setText(res.toInt().toString())
+                }
             } else if (res is String) {
                 tv_num2.setText(res)
             }
