@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnIgual: Button = findViewById(R.id.btnIgual)
         val btnBorrar: Button = findViewById(R.id.btnBorrar)
+        val btnBorrar1: Button = findViewById(R.id.btnBorrar1)
         tv_num1 = findViewById(R.id.tv_num1)
         tv_num2 = findViewById(R.id.tv_num2)
 
@@ -56,6 +57,10 @@ class MainActivity : AppCompatActivity() {
             numero1 = 0.0
             isNum2Selected = false
         }
+
+        btnBorrar1.setOnClickListener {
+            clicBorrar(it)
+        }
     }
 
     fun clicNumero(view: View) {
@@ -74,6 +79,8 @@ class MainActivity : AppCompatActivity() {
             R.id.btn9 -> tv_num2.setText(num2 + "9")
             R.id.btnPunto -> tv_num2.setText(num2 + ".")
         }
+
+        isNum2Selected = true
     }
 
     fun clicOperacion(view: View) {
@@ -123,6 +130,4 @@ class MainActivity : AppCompatActivity() {
         val targetTextView = if (isNum2Selected) tv_num2 else tv_num1
         targetTextView.text = targetTextView.text.toString().dropLast(1)
     }
-
-
 }
